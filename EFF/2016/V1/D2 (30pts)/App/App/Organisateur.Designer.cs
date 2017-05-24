@@ -81,10 +81,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(404, 150);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // tbnom
             // 
-            this.tbnom.Location = new System.Drawing.Point(152, 173);
+            this.tbnom.Location = new System.Drawing.Point(161, 188);
             this.tbnom.Name = "tbnom";
             this.tbnom.Size = new System.Drawing.Size(100, 20);
             this.tbnom.TabIndex = 4;
@@ -92,7 +93,7 @@
             // 
             // tbpren
             // 
-            this.tbpren.Location = new System.Drawing.Point(152, 202);
+            this.tbpren.Location = new System.Drawing.Point(161, 217);
             this.tbpren.Name = "tbpren";
             this.tbpren.Size = new System.Drawing.Size(100, 20);
             this.tbpren.TabIndex = 4;
@@ -118,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 176);
+            this.label2.Location = new System.Drawing.Point(117, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 5;
@@ -127,7 +128,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 200);
+            this.label3.Location = new System.Drawing.Point(117, 215);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 5;

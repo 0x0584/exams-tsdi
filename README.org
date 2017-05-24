@@ -6,4 +6,6 @@
 
 * Who?
   Anas Rchid. A simple man with a complex mind.
+  Using =MS Visual Studio 2010=, =MS Sql Express 2008=
+
 

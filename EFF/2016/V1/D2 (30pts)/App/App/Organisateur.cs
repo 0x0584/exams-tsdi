@@ -63,7 +63,7 @@ namespace App
             }
         }
 
-        private void btnadd_Click(object sender, EventArgs e)
+        private bool Verify_Input()
         {
             // textfields are not empty and the password 
             // has more-than-or-equal 6 characters
@@ -92,7 +92,12 @@ namespace App
                        tbpren.Text != "");
             #endregion
 
-            if (isvalid) {
+            return isvalid;
+        }
+
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+            if (Verify_Input( )) {
                 try {
                     connection.Open( );
                     int lastid = 0;
@@ -128,7 +133,50 @@ namespace App
 
         private void btnmod_Click(object sender, EventArgs e)
         {
-            adapter.Update(ds, "tOrganisateur");
+            int id = 0;
+
+            if (Verify_Input( )) {
+                try {
+                    connection.Open( );
+
+                    #region Get the id
+                    int index = int.Parse(dataGridView1.SelectedCells[0].Value.ToString( ));
+                    DataGridViewRow row = dataGridView1.Rows[index];
+                    id = int.Parse(row.Cells["idOrg"].Value.ToString( ));
+                    #endregion
+
+                    command.CommandText = "UPDATE Organisateur " +
+                                          "SET nomOrg = @nom, prenomOrg = @pren, " +
+                                          "emailOrg = @email, passOrg = @passwd " +
+                            string.Format("WHERE idOrg = {0}", id);
+
+                    #region Setup Parameters
+                    command.Parameters.AddWithValue("@nom", tbnom.Text);
+                    command.Parameters.AddWithValue("@pren", tbnom.Text);
+                    command.Parameters.AddWithValue("@email", tbnom.Text);
+                    command.Parameters.AddWithValue("@passwd", tbnom.Text);
+                    #endregion
+
+                    command.ExecuteNonQuery( );
+                    connection.Close( );
+                } catch { MessageBox.Show("CONNECTION_ERR"); }
+            } else {
+                MessageBox.Show("FILL ALL THE FEILDS");
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index;
+
+            if ((index = dataGridView1.SelectedCells[0].RowIndex) >= 0) {
+                DataGridViewRow row = dataGridView1.Rows[index];
+
+                tbemail.Text = row.Cells["emailOrg"].Value.ToString( );
+                tbnom.Text = row.Cells["nomOrg"].Value.ToString( );
+                tbpren.Text = row.Cells["prenomOrg"].Value.ToString( );
+                tbpasswd.Text = row.Cells["passOrg"].Value.ToString( );
+            }
         }
     }
 }
