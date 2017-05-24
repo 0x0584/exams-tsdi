@@ -128,7 +128,7 @@ namespace App
 
         private void btnmod_Click(object sender, EventArgs e)
         {
-
+            adapter.Update(ds, "tOrganisateur");
         }
     }
 }
