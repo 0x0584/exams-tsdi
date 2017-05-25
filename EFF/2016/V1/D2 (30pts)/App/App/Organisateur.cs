@@ -23,6 +23,7 @@ namespace App
         DataSet ds = new DataSet( );
         SqlDataAdapter adapter;
 
+        int currentindex = 0;
         public Organisateur()
         {
             InitializeComponent( );
@@ -51,6 +52,7 @@ namespace App
             }
         }
 
+        #region Methodes
         private void Bind()
         {
             command.CommandText = "SELECT * FROM Organisateur";
@@ -108,6 +110,25 @@ namespace App
             return isvalid;
         }
 
+        private void FindElement(int id)
+        {
+            command.CommandText = "SELECT * FROM Organisateur WHERE idOrg = @id";
+            command.Parameters.Clear( );
+            command.Parameters.AddWithValue("@id", id);
+
+            connection.Open( );
+            while ((reader = command.ExecuteReader( )).Read( )) {
+                tbemail.Text = reader["emailOrg"].ToString( );
+                tbnom.Text = reader["nomOrg"].ToString( );
+                tbpasswd.Text = reader["passOrg"].ToString( );
+                tbpren.Text = reader["prenomOrg"].ToString( );
+                break;
+            }
+            reader.Close( );
+            connection.Close( );
+        }
+        #endregion
+
         #region CRUD
         private void btnadd_Click(object sender, EventArgs e)
         {
@@ -119,6 +140,8 @@ namespace App
                     #region Get the `lastid`
                     command.CommandText = "SELECT idOrg FROM Organisateur";
                     reader = command.ExecuteReader( );
+                    // at the end of this loop, `lastid` would have 
+                    // the last readed-value from the reader
                     while (reader.Read( ))
                         lastid = int.Parse(reader["idOrg"].ToString( ));
                     reader.Close( );
@@ -128,6 +151,7 @@ namespace App
                                           "VALUES(@id, @nom, @pren, @email, @pass)";
 
                     #region Setup command parameters
+                    command.Parameters.Clear( );
                     command.Parameters.AddWithValue("@id", ++lastid);
                     command.Parameters.AddWithValue("@nom", tbnom.Text);
                     command.Parameters.AddWithValue("@pren", tbpren.Text);
@@ -165,6 +189,7 @@ namespace App
                             string.Format("WHERE idOrg = {0}", id);
 
                     #region Setup Parameters
+                    command.Parameters.Clear( );
                     command.Parameters.AddWithValue("@nom", tbnom.Text);
                     command.Parameters.AddWithValue("@pren", tbnom.Text);
                     command.Parameters.AddWithValue("@email", tbnom.Text);
@@ -189,7 +214,7 @@ namespace App
 
                 try {
                     connection.Open( );
-                    command.CommandText = string.Format("DELETE FROM Organisateur "+
+                    command.CommandText = string.Format("DELETE FROM Organisateur " +
                                                         "WHERE idOrg = {0}", index);
                     command.ExecuteNonQuery( );
                     Bind( );
@@ -200,6 +225,7 @@ namespace App
         }
         #endregion
 
+        #region Events
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index;
@@ -237,5 +263,43 @@ namespace App
             }
 
         }
+        #endregion
+
+        #region Navigation
+        private void btn_first_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(combox_ids.Items[(currentindex = 0)].ToString( ));
+            combox_ids.Text = id.ToString( );
+            FindElement(id);
+
+        }
+
+        private void btn_last_Click(object sender, EventArgs e)
+        {
+            int count = currentindex = combox_ids.Items.Count - 1;
+            int id = int.Parse(combox_ids.Items[count].ToString( ));
+            combox_ids.Text = id.ToString( );
+            FindElement( id );
+        }
+
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            // pass the array boundries
+            if ((currentindex + 1) == combox_ids.Items.Count) return;
+
+            int id = int.Parse(combox_ids.Items[++currentindex].ToString( ));
+            combox_ids.Text = id.ToString( );
+            FindElement(id);
+        }
+
+        private void btn_prev_Click(object sender, EventArgs e)
+        {
+            if ((currentindex - 1) < 0) return;
+
+            int id = int.Parse(combox_ids.Items[--currentindex].ToString( ));
+            combox_ids.Text = id.ToString( );
+            FindElement(id);
+        }
+        #endregion
     }
 }
