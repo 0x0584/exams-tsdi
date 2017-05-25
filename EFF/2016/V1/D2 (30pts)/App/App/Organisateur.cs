@@ -22,6 +22,7 @@ namespace App
 
         DataSet ds = new DataSet( );
         SqlDataAdapter adapter;
+
         public Organisateur()
         {
             InitializeComponent( );
@@ -38,6 +39,12 @@ namespace App
                 adapter.Fill(ds, "tOrganisateur");
                 //adapter.Update(ds, "tOrganisateur");
                 dataGridView1.DataSource = ds.Tables["tOrganisateur"];
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                    if (row.Cells[0].Value != null)
+                        combox_ids.Items.Add(row.Cells[0].Value.ToString( ));
+
+                combox_ids.Text = combox_ids.Items[0].ToString( );
                 //connection.Close( );
             } catch (SqlException) {
                 throw;
@@ -57,6 +64,12 @@ namespace App
                 adapter.Fill(ds, "tOrganisateur");
                 //adapter.Update(ds, "tOrganisateur");
                 dataGridView1.DataSource = ds.Tables["tOrganisateur"];
+
+                combox_ids.Items.Clear( );
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                    if (row.Cells[0].Value != null)
+                        combox_ids.Items.Add(row.Cells[0].Value.ToString( ));
+
                 //connection.Close( );
             } catch (SqlException) {
                 throw;
@@ -95,6 +108,7 @@ namespace App
             return isvalid;
         }
 
+        #region CRUD
         private void btnadd_Click(object sender, EventArgs e)
         {
             if (Verify_Input( )) {
@@ -165,6 +179,27 @@ namespace App
             }
         }
 
+        private void btnsupp_Click(object sender, EventArgs e)
+        {
+            int rowindex;
+
+            if ((rowindex = dataGridView1.SelectedCells[0].RowIndex) >= 0) {
+                DataGridViewRow row = dataGridView1.Rows[rowindex];
+                int index = int.Parse(row.Cells[0].Value.ToString( ));
+
+                try {
+                    connection.Open( );
+                    command.CommandText = string.Format("DELETE FROM Organisateur "+
+                                                        "WHERE idOrg = {0}", index);
+                    command.ExecuteNonQuery( );
+                    Bind( );
+                    connection.Close( );
+                } catch { MessageBox.Show(string.Format("idOrg:{0} IS FK", index)); }
+
+            }
+        }
+        #endregion
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index;
@@ -177,6 +212,30 @@ namespace App
                 tbpren.Text = row.Cells["prenomOrg"].Value.ToString( );
                 tbpasswd.Text = row.Cells["passOrg"].Value.ToString( );
             }
+        }
+
+        private void combox_ids_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object selected = combox_ids.SelectedItem;
+
+            if (selected != null) {
+
+                foreach (DataGridViewRow row in dataGridView1.Rows) {
+
+                    object cell = row.Cells[0].Value;
+
+                    if (cell != null && cell.ToString( ) == selected.ToString( )) {
+                        tbemail.Text = row.Cells["emailOrg"].Value.ToString( );
+                        tbnom.Text = row.Cells["nomOrg"].Value.ToString( );
+                        tbpren.Text = row.Cells["prenomOrg"].Value.ToString( );
+                        tbpasswd.Text = row.Cells["passOrg"].Value.ToString( );
+
+                        break;
+                    }
+
+                }
+            }
+
         }
     }
 }
