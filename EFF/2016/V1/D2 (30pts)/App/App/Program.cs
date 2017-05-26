@@ -15,7 +15,7 @@ namespace App
         {
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormListComp( ));
+            Application.Run(new FormProc3( ));
         }
     }
 }

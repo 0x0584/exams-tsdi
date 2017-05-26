@@ -58,6 +58,12 @@
     <Compile Include="FormListComp.Designer.cs">
       <DependentUpon>FormListComp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProc3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProc3.Designer.cs">
+      <DependentUpon>FormProc3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Organisateur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormListComp.resx">
       <DependentUpon>FormListComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProc3.resx">
+      <DependentUpon>FormProc3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Organisateur.resx">
       <DependentUpon>Organisateur.cs</DependentUpon>
