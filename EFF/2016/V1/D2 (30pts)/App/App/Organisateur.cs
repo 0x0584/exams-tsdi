@@ -24,6 +24,7 @@ namespace App
         SqlDataAdapter adapter;
 
         int currentindex = 0;
+
         public Organisateur()
         {
             InitializeComponent( );
@@ -42,7 +43,8 @@ namespace App
                 dataGridView1.DataSource = ds.Tables["tOrganisateur"];
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
-                    if (row.Cells[0].Value != null)
+                    // dgv has `null` values @ the end                    
+                    if (row.Cells[0].Value != null)  
                         combox_ids.Items.Add(row.Cells[0].Value.ToString( ));
 
                 combox_ids.Text = combox_ids.Items[0].ToString( );
@@ -279,7 +281,7 @@ namespace App
             int count = currentindex = combox_ids.Items.Count - 1;
             int id = int.Parse(combox_ids.Items[count].ToString( ));
             combox_ids.Text = id.ToString( );
-            FindElement( id );
+            FindElement(id);
         }
 
         private void btn_next_Click(object sender, EventArgs e)
