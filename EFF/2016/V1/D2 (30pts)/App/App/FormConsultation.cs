@@ -17,7 +17,7 @@ namespace App
                                                      "Initial catalog = ff2016;" +
                                                      "Integrated security = yes;");
         SqlCommand command = new SqlCommand( );
-        SqlDataReader reader;
+        SqlDataReader reader = null;
 
         public FormConsultation()
         {

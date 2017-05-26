@@ -52,6 +52,12 @@
     <Compile Include="FormConsultation.Designer.cs">
       <DependentUpon>FormConsultation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormListComp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListComp.Designer.cs">
+      <DependentUpon>FormListComp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Organisateur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormConsultation.resx">
       <DependentUpon>FormConsultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListComp.resx">
+      <DependentUpon>FormListComp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Organisateur.resx">
       <DependentUpon>Organisateur.cs</DependentUpon>
