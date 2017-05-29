@@ -11,6 +11,15 @@ namespace SiteWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool isOrg = false, isGuest = false;
+
+            try {
+                if (Request.QueryString["user"] == "false") ;
+                
+            } catch (Exception) {
+
+                throw;
+            }
 
         }
     }

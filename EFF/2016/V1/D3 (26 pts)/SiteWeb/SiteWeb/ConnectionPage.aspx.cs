@@ -24,7 +24,7 @@ namespace SiteWeb
                 string email, passwd;
                 string response;
 
-                isvalid = isOrg = false; 
+                isvalid = isOrg = false;
                 email = passwd = response = string.Empty;
 
                 #region Retrieve the E-mail and the Password
