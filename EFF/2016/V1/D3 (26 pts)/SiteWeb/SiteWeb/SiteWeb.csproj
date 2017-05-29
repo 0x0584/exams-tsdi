@@ -55,6 +55,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="ConnectionPage.aspx" />
+    <Content Include="ERR.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="ConnectionPage.aspx.designer.cs">
       <DependentUpon>ConnectionPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERR.aspx.cs">
+      <DependentUpon>ERR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERR.aspx.designer.cs">
+      <DependentUpon>ERR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

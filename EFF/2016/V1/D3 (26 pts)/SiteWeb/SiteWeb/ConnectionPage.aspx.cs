@@ -16,13 +16,15 @@ namespace SiteWeb
 
         protected void btnsignin_Click(object sender, EventArgs e)
         {
+            string pMain = "~/MainPage.aspx?";
+
             if (tbusrname.Text != "" && tbpasswd.Text != "" &&
                 !(chkguest.Checked)) {
-                // Participant || Organisateur 
+                string response = string.Empty;
+                #region Participant || Organisateur
 
                 bool isvalid, isOrg;
                 string email, passwd;
-                string response;
 
                 isvalid = isOrg = false;
                 email = passwd = response = string.Empty;
@@ -68,17 +70,21 @@ namespace SiteWeb
                 }
                 #endregion
 
-
-                if (isvalid) response = string.Format("~/MainPage.aspx?user=true&isorg={2}&email={0}&passwd={1}", email, passwd, isOrg);
-                else lblerr.Text = "E-mail and/or Password are/is wrong";
-
-                Response.Redirect(response);
+                if (isvalid) {
+                    response = string.Format(pMain + "user=true&isorg={1}&email={0}", email, isOrg);
+                    Response.Redirect(response);
+                } else lblerr.Text = "E-mail and/or Password are/is wrong";
+                #endregion
+                return;
             } else if (tbusrname.Text == "" && tbpasswd.Text == "" &&
                        chkguest.Checked) {
-                // Participant (normal user)
-                Response.Redirect("~/MainPage.aspx?user=false");
-            } /* either login or passwd is empty */ else lblerr.Text = "FILL ALL THE FEILDS OR SIGN IN AS GUEST";
-
+                // Guest user
+                Response.Redirect(pMain + "user=false");
+            } else /* either login or passwd is empty */ {
+                //lblerr.Style.Value = "font-size: 10px; color: #541542;";
+                lblerr.Text = "FILL ALL THE FEILDS" +
+                              "<BR> OR <I>CHECK 'GUEST'</I> TO SIGN IN AS GUEST";
+            }
         }
     }
 }
