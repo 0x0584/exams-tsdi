@@ -23,7 +23,6 @@ namespace App
         {
             InitializeComponent( );
             command.Connection = connection;
-            command.CommandType = CommandType.StoredProcedure;
         }
 
         private void FormProc3_Load(object sender, EventArgs e)
@@ -34,10 +33,16 @@ namespace App
             List<object> view = new List<object>( );
 
             connection.Open( );
-            command.CommandText = "EXEC [dbo].[LST_PARTICI] @idc";
+            
+            #region Setup the command
+            command.CommandType = CommandType.StoredProcedure;            
+            command.CommandText = "LST_PARTICI";
             command.Parameters.Clear( );
-            command.Parameters.AddWithValue("@idc", 1);
+            command.Parameters.AddWithValue("@idC", 1);
+            #endregion
+
             reader = command.ExecuteReader( );
+            
             while (reader.Read( )) {
                 view.Add(new {
                     MontantPart = reader["montantPart"].ToString( ),
@@ -46,6 +51,7 @@ namespace App
             }
             reader.Close( );
 
+            dataGridView1.DataSource = view;
             connection.Close( );
         }
     }
