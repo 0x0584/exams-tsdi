@@ -56,6 +56,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="ConnectionPage.aspx" />
     <Content Include="ERR.aspx" />
+    <Content Include="ListCampagnes.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ListCampagnes.aspx.cs">
+      <DependentUpon>ListCampagnes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListCampagnes.aspx.designer.cs">
+      <DependentUpon>ListCampagnes.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>

@@ -13,14 +13,13 @@
         <br />
         <asp:Label ID="lblerr" runat="server" Text="" Style="color: Red;" />
         <p>
-            
             <asp:TextBox ID="tbusrname" runat="server"> </asp:TextBox><i>E-mail</i>
             <br />
            
             <asp:TextBox ID="tbpasswd" runat="server"> </asp:TextBox> <i>Password</i>
             <br />
             <asp:Button ID="btnsignin" runat="server" Text="Sign in" OnClick="btnsignin_Click"
-                Style="margin: 0px 0px 0px 40px" />
+                Style="margin: 0px 0px 0px 40px;" />
             <asp:CheckBox ID="chkguest" runat="server" Text="Guest" Style="margin: 0px 0px 0px 15px;" />
         </p>
     </div>

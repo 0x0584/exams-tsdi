@@ -19,7 +19,7 @@ namespace SiteWeb
             #region Initializisation
             isOrg = isGuest = false;
             email = string.Empty;
-            #endregion
+            #endregion  
 
             #region Identify the user
             try {
@@ -36,11 +36,12 @@ namespace SiteWeb
             if (isOrg) pMain += "<h2> Organisateur </h2>" +
                 "<ul>" + " <li> <a href=\"#\"> Vos Campagnes</a></li>" + "</ul>";
             else pMain += "<h2> Participation </h2> " +
-                "<ul>" + " <li> <a href=\"#\">Participer a une Campagne</a></li>"+
+                "<ul>" + " <li> <a href=\"#\">Participer a une Campagne</a></li>" +
                 "</ul>";
 
             if (isGuest) pMain += "<br /> <h2>Other</h2> " +
-                "<ul>" + " <li><a href=\"#\">List de campagnes existantes</a></li>" + 
+                "<ul>" + " <li><a href=\"#\">Effectuer des consultations " +
+                "des campagnes existantes</a></li>" +
                 "</ul>";
 
             Response.Write(pMain);
