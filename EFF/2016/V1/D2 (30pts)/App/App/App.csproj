@@ -34,8 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EtatListPartici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EtatListPartici.Designer.cs">
+      <DependentUpon>EtatListPartici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ff2016DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ff2016DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormConsultation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EtatListPartici.resx">
+      <DependentUpon>EtatListPartici.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConsultation.resx">
       <DependentUpon>FormConsultation.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +110,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="ff2016DataSet.xsc">
+      <DependentUpon>ff2016DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ff2016DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ff2016DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ff2016DataSet.xss">
+      <DependentUpon>ff2016DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
