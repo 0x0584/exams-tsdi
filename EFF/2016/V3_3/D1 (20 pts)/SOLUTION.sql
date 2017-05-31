@@ -43,4 +43,10 @@ BEGIN
 		u.numRespo = @id;
 END
 GO
-	
+
+DECLARE @n int, @m int;
+
+EXEC COUNT_ENSEI_RESPO_DE_FORMATEUR 1, @n output, @m output;
+PRINT @n 
+PRINT @m
+GO
