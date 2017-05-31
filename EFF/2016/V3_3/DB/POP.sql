@@ -29,7 +29,7 @@ VALUES (1, 'Chap0', 3),
 	   (2, 'Chap1', 2),
 	   (3, 'Chap2', 2);
 GO
-
+	   
 INSERT INTO Section -- (num_section, nom_section, #num_formation).
 VALUES (1, 'Sec0', 1),
 	   (2, 'Sec1', 2),
