@@ -21,6 +21,7 @@
             <asp:Button ID="btnsignin" runat="server" Text="Sign in" OnClick="btnsignin_Click"
                 Style="margin: 0px 0px 0px 40px;" />
             <asp:CheckBox ID="chkguest" runat="server" Text="Guest" Style="margin: 0px 0px 0px 15px;" />
+        
         </p>
     </div>
     </form>
