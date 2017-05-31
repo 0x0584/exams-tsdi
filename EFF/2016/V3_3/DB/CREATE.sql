@@ -55,7 +55,7 @@ CREATE TABLE UV(numUV
 				numRespo 
 				int foreign key references Formateur(NumFormateur) NOT NULL,
 				
-				nomFormation 
+				numFormation 
 				int foreign key references Formation(numFormation) NOT NULL);
 GO
 
@@ -88,4 +88,3 @@ CREATE TABLE Inscrit(numInscrit
 					 numSection
 					 int foreign key references Section(numSection) NOT NULL);
 GO
-

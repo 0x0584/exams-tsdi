@@ -26,21 +26,21 @@ GO
 --------------
 
 CREATE PROC COUNT_ENSEI_RESPO_DE_FORMATEUR
-(@id int, @nbUV_Ensei int output, @nbUV_Respo int output) AS
+(@numFormateur int, @nbUV_Ensei int output, @nbUV_Respo int output) AS
 BEGIN
 	SELECT 
 		@nbUV_Ensei = COUNT(u.numEnsei)
 	FROM
 		UV u
 	WHERE
-		u.numEnsei = @id;
+		u.numEnsei = @numFormateur;
 	---
 	SELECT 
 		@nbUV_Respo = COUNT(u.numRespo)
 	FROM
 		UV u
 	WHERE
-		u.numRespo = @id;
+		u.numRespo = @numFormateur;
 END
 GO
 
@@ -50,3 +50,28 @@ EXEC COUNT_ENSEI_RESPO_DE_FORMATEUR 1, @n output, @m output;
 PRINT @n 
 PRINT @m
 GO
+ 
+-- Question 5:
+--------------
+
+CREATE FUNCTION TOTAL_MASS_HORAIRE_FORMATION
+(@numFormation int) RETURNS int AS 
+BEGIN
+	DECLARE @total int;
+	SELECT 
+		@total = SUM(u.massHoraire)
+	FROM
+		UV u;
+		
+	RETURN @total;
+END
+GO
+
+DECLARE @tmp int;
+SELECT @tmp = dbo.TOTAL_MASS_HORAIRE_FORMATION(1);
+PRINT @tmp
+GO
+
+-- Question 6:
+--------------
+ -- ??

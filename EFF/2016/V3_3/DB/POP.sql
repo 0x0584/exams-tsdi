@@ -1,6 +1,8 @@
 --    FILE: POP.sql
 --  AUTHOR: ANAS RCHID
 -- CREATED: 05/31/16
+USE ff2016_v33;
+GO
 
 INSERT INTO Formateur -- (num_formateur, nom_formateur, prenom_formateur,
 					  --  télephone, adresse, type). 
@@ -47,4 +49,3 @@ VALUES (1, 'Person0', 1),
 ALTER TABLE Formateur 
 ADD CONSTRAINT CONS_TYPE 
 CHECK (typeFormateur = 'permanant' OR typeFormateur = 'vacataire');
-
