@@ -8,3 +8,4 @@ C:\Documents and Settings\Anas Rchid\Desktop\Exams\EFF\2016\D2 (30pts)\App\App\o
 C:\Documents and Settings\Anas Rchid\Desktop\Exams\EFF\2016\D2 (30pts)\App\App\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\Anas Rchid\Desktop\Exams\EFF\2016\D2 (30pts)\App\App\obj\x86\Debug\App.exe
 C:\Documents and Settings\Anas Rchid\Desktop\Exams\EFF\2016\D2 (30pts)\App\App\obj\x86\Debug\App.pdb
+C:\Documents and Settings\Anas Rchid\Desktop\Exams\EFF\2016\V1_1\D2 (30pts)\App\App\bin\Debug\App.exe.config
