@@ -43,9 +43,3 @@ VALUES (1, 'Person0', 1),
 	   (2, 'Person1', 1),
 	   (3, 'Person2', 2);
 	   
--- CONSTRAINT
---------------
-
-ALTER TABLE Formateur 
-ADD CONSTRAINT CONS_TYPE 
-CHECK (typeFormateur = 'permanant' OR typeFormateur = 'vacataire');

@@ -88,3 +88,10 @@ CREATE TABLE Inscrit(numInscrit
 					 numSection
 					 int foreign key references Section(numSection) NOT NULL);
 GO
+
+-- CONSTRAINT
+--------------
+
+ALTER TABLE Formateur 
+ADD CONSTRAINT CONS_TYPE 
+CHECK (typeFormateur = 'permanent' OR typeFormateur = 'vacataire');
