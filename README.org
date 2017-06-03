@@ -5,7 +5,7 @@
   Just in case someone needs to see the solution of the Exams. While I was dealing with them, I find-out that the solution of the =EFF's= is /rare/, so I said why not solving them and put the solution to the public.
 
 * Who?
-  Anas Rchid.
-  Using =MS Visual Studio 2010=, =MS Sql Express 2008=
+  [[mailto:rchid.anas@gmail.com][Anas Rchid]], TSDI 202. 2017.
+  Using =MS Visual Studio 2010=, =MS Sql Server Express 2008=
 
 
