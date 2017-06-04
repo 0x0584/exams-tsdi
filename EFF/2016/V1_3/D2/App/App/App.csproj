@@ -64,6 +64,12 @@
     <Compile Include="ListOperation2015.Designer.cs">
       <DependentUpon>ListOperation2015.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proc_LST_DONATIONS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proc_LST_DONATIONS.Designer.cs">
+      <DependentUpon>Proc_LST_DONATIONS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Consultation.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListOperation2015.resx">
       <DependentUpon>ListOperation2015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proc_LST_DONATIONS.resx">
+      <DependentUpon>Proc_LST_DONATIONS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

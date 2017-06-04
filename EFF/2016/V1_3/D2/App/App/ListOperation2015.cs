@@ -27,10 +27,13 @@ namespace App
         {
             List<object> view = new List<object>( );
 
-            commander.CommandText = "SELECT o.nomOp, o.dateCreation, o.montantOp " +
-                                    "FROM Operation o " +
+            commander.CommandText = "SELECT o.nomOp, o.dateCreation, o.montantOp, " +
+                                    "       COUNT(b.idBien) as nombreBien  " +
+                                    "FROM Operation o, Bienfaisant b, Donation d " +
                                     "WHERE o.cumulMontant >= o.montantOp AND " +
-                                    "YEAR(o.dateCreation) = 2017";
+                                    "      YEAR(o.dateCreation) = 2017 AND " +
+                                    "      d.idBien = b.idBien AND d.idOp = o.idOp " +
+                                    "GROUP BY o.nomOp, o.dateCreation, o.montantOp";
 
             commander.Connection.Open( );
             reader = commander.ExecuteReader( );
@@ -38,7 +41,8 @@ namespace App
                 view.Add(new {
                     nomOp = reader["nomOp"].ToString( ),
                     dateCreation = reader["dateCreation"].ToString( ),
-                    montantOp = reader["montantOp"].ToString( )
+                    montantOp = reader["montantOp"].ToString( ),
+                    nombreBien = reader["nombreBien"].ToString( )
                 });
             }
             reader.Close( );
