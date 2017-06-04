@@ -15,7 +15,7 @@ namespace App
         {
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Consultation( ));
+            Application.Run(new ListOperation2015( ));
         }
     }
 }
