@@ -34,5 +34,5 @@ GO
 SELECT * FROM Famille;
 SELECT * FROM Planificateur;
 SELECT * FROM Operation;
-SELECT * FROM Bienfaisant;
 SELECT * FROM Donation;
+SELECT * FROM Bienfaisant;
