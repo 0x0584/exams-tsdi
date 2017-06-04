@@ -26,6 +26,7 @@ namespace App
         private void Consultation_Load(object sender, EventArgs e)
         {
             commander.CommandText = "SELECT * FROM Famille";
+
             commander.Connection.Open( );
             reader = commander.ExecuteReader( );
             while (reader.Read( )) {
@@ -38,6 +39,8 @@ namespace App
 
         private void cbox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string[] g = cbox1.Text.Split(new char[] { '(', ')' });
+
             int idf = int.Parse(cbox1.Text.Split(new char[] { '(', ')' })[1]);
 
             List<object> view = new List<object>( );
