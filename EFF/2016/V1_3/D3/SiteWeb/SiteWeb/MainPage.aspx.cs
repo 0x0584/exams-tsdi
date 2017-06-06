@@ -9,9 +9,41 @@ namespace SiteWeb
 {
     public partial class MainPage: System.Web.UI.Page
     {
+        protected string FillPageContent(IUser.Type type)
+        {
+            string content = "";
+
+            switch (type) {
+                case IUser.Type.GUEST:
+                content += "<a href=\"~/Consultation.aspx\">Consultation</a>";
+                content += "<br />";
+                break;
+
+                case IUser.Type.BIEN:
+                content += "<a href=\"~/Consultation.aspx\">Consultation</a>";
+                content += "<br />";
+                content += "<a href=\"~/Participation.aspx\">Participer</a>";
+                content += "<br />";
+                break;
+
+                case IUser.Type.PLAN:
+                content += "<a href=\"~/Consultation.aspx\">Consultation</a>";
+                content += "<br />";
+                content += "<a href=\"~/Participation.aspx\">Participer</a>";
+                content += "<br />";
+                break;
+
+                default: break;
+            }
+            return content;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblemail.Text = Request.QueryString["email"];
+            if (Session["Email"] != null && Session["Type"] != null) {
+                lblemail.Text = Session["Email"].ToString( );
+                Response.Write(FillPageContent((IUser.Type)Session["Type"]));
+            }
         }
     }
 }

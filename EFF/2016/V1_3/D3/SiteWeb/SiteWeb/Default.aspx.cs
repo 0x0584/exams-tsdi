@@ -17,7 +17,17 @@ namespace SiteWeb
 
         protected void ToMainPage(string email, bool isplan)
         {
-            string pMain = string.Format("~/MainPage.aspx?email={0}&isplan={1}", email, isplan);
+            IUser.Type type;
+
+            if (!(isplan) && email != "none") type = IUser.Type.BIEN;
+            else if (isplan) type = IUser.Type.PLAN;
+            else type = IUser.Type.GUEST;
+
+            string pMain = "~/MainPage.aspx";
+
+            Session["Email"] = email;
+            Session["Type"] = type;
+
             Response.Redirect(pMain);
         }
 
@@ -29,6 +39,7 @@ namespace SiteWeb
                     bool exists = false;
                     string email = "";
 
+                    #region Planificateur || Bienfaisant
                     SqlCommand commander = new SqlCommand( );
 
                     #region Setup commander
@@ -63,6 +74,8 @@ namespace SiteWeb
 
                 TO_PAGE:
                     commander.Connection.Close( );
+                    #endregion
+
                     if (exists) ToMainPage(email, isplan);
                     else lblerr.Text = "E-MAIL AND/OR PASSWORD ARE/IS WRONG";
                 } else if (chboxguest.Checked) {
