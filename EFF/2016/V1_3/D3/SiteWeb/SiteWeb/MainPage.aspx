@@ -12,6 +12,10 @@
     
         <asp:Label ID="lblemail" runat="server" Text="email"></asp:Label>
     
+        <br />
+        <asp:Button ID="btnlogout" runat="server" Text="Log-out" 
+            onclick="btnlogout_Click" />
+    
     </div>
     </form>
 </body>

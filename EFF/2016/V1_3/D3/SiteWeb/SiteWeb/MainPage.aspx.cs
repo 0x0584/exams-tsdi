@@ -53,5 +53,11 @@ namespace SiteWeb
                 Response.Redirect("~/Default.aspx");
             }
         }
+
+        protected void btnlogout_Click(object sender, EventArgs e)
+        {
+            Session["Email"] = Session["Type"] = null;
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

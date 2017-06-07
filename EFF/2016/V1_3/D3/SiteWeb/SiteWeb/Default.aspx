@@ -6,11 +6,15 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:TextBox ID="tbemail" runat="server"></asp:TextBox>:E-Mail<br />
     <asp:TextBox ID="tbpasswd" runat="server"></asp:TextBox>:Password<br />
-    <p style="margin: 0px 0px 0px 40px;">
-        <asp:Button ID="btnsignin" runat="server" Text="Signin" 
-            onclick="btnsignin_Click" /><br />
-        <asp:CheckBox ID="chboxguest" runat="server" Text="Guest" /><br />
-        <asp:Label ID="lblerr" runat="server" Text="" style="color:Red;"></asp:Label>
+    <p style="margin: 0px 0px 0px 20px;">
+        <asp:Button ID="btnsignin" runat="server" Text="Sign-in" 
+            onclick="btnsignin_Click" />
+        <asp:Button ID="btnsignup" runat="server" Text="Sign-up" 
+            style="margin-left: 10px;" onclick="btnsignup_Click"/>
+        <br />
+        <asp:CheckBox ID="chboxguest" runat="server" Text="Guest" style="margin-left:45px;"/><br />
     </p>
+        <asp:Label ID="lblerr" runat="server" Text="" style="color:Red;"></asp:Label>
+
     <br />
 </asp:Content>

@@ -85,5 +85,10 @@ namespace SiteWeb
                 lblerr.Text = "ERR, FILL ALL THE FEILDS OR SIGN IN AS GUEST!";
             }
         }
+
+        protected void btnsignup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect( "~/Inscription.aspx");
+        }
     }
 }
