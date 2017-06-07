@@ -51,27 +51,34 @@ namespace SiteWeb
                 commander.Parameters.AddWithValue("@passwd", tbpasswd.Text);
                 #endregion
 
+                #region Bienfaisnt?
                 commander.CommandText = "SELECT * FROM Bienfaisant b " +
-                                        "WHERE (b.emailBien = @email AND b.passBien = @passwd)";
+                                        "WHERE (b.emailBien = @email AND " +
+                                        "b.passBien = @passwd)";
                 commander.Connection.Open( );
                 SqlDataReader reader = commander.ExecuteReader( );
 
                 if (reader.Read( )) {
                     email = reader["emailBien"].ToString( );
                     exists |= true; // it's true!
-                    goto TO_PAGE;
+                    goto TO_PAGE; // we found it! let's skip the rest 
                 }
+                #endregion
 
+                #region Planificateur?
                 commander.CommandText = "SELECT * FROM Planificateur b " +
-                                        "WHERE (b.emailPlan = @email AND b.passPlan = @passwd)";
+                                        "WHERE (b.emailPlan = @email AND " +
+                                        "b.passPlan = @passwd)";
                 if (!(reader.IsClosed)) reader.Close( );
                 reader = commander.ExecuteReader( );
 
                 if (reader.Read( )) {
                     email = reader["emailPlan"].ToString( );
                     exists |= (isplan ^= true); // it's true too!!
-                    goto TO_PAGE;
+
+                    Session["IdPlan"] = reader["idPlan"].ToString( );
                 }
+                #endregion
 
             TO_PAGE:
                 commander.Connection.Close( );
@@ -88,7 +95,7 @@ namespace SiteWeb
 
         protected void btnsignup_Click(object sender, EventArgs e)
         {
-            Response.Redirect( "~/Inscription.aspx");
+            Response.Redirect("~/Inscription.aspx");
         }
     }
 }

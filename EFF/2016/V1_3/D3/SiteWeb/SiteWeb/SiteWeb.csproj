@@ -55,6 +55,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="AddOperation.aspx" />
     <Content Include="Consultation.aspx" />
     <Content Include="Inscription.aspx" />
     <Content Include="MainPage.aspx" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddOperation.aspx.cs">
+      <DependentUpon>AddOperation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddOperation.aspx.designer.cs">
+      <DependentUpon>AddOperation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultation.aspx.cs">
       <DependentUpon>Consultation.aspx</DependentUpon>

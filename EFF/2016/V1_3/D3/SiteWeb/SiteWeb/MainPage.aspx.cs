@@ -31,6 +31,8 @@ namespace SiteWeb
                 content += "<br />";
                 content += "<a href=\"Participation.aspx\">Participer</a>";
                 content += "<br />";
+                content += "<a href=\"AddOperation.aspx\">Ajouter une Operation</a>";
+                content += "<br />";
                 break;
 
                 default: break;

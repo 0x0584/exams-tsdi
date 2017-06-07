@@ -25,9 +25,9 @@ namespace SiteWeb
             reader = commander.ExecuteReader( );
             while (reader.Read( )) {
                 DateTime date = DateTime.Parse(reader["DateCreation"].ToString( ));
-                date.AddDays(int.Parse(reader["datefin"].ToString( )));
+                int ndays = int.Parse(reader["datefin"].ToString( ));
                 // en cours
-                if (DateTime.Today.CompareTo(date) > 0) {
+                if (DateTime.Today.CompareTo(date.AddDays(ndays)) < 0) {
                     view.Add(new {
                         idOp = reader["idOp"].ToString( ),
                         nomOp = reader["nomOp"].ToString( ),
@@ -66,6 +66,8 @@ namespace SiteWeb
                 }
                 reader.Close( );
                 commander.Connection.Close( );
+                gv1.DataSource = BindGridView();
+                gv1.DataBind( );
             } else {
                 Response.Redirect("~/Default.aspx");
             }
