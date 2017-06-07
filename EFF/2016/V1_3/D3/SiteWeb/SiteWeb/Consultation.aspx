@@ -9,6 +9,20 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <h1>
+        Operation en cours
+        </h1>
+        <asp:DropDownList ID="ddlist" runat="server">
+        </asp:DropDownList>
+        <asp:Button ID="btnrefresh" runat="server" Text="Refresh" 
+            onclick="btnrefresh_Click" />
+        <br />
+    <br />
+        <asp:GridView ID="gv1" runat="server">
+        </asp:GridView>
+    
+        <br />
+        <asp:Label ID="lblemail" runat="server" Text="Label"></asp:Label>
     
     </div>
     </form>
