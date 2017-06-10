@@ -10,60 +10,51 @@
 namespace SiteWeb {
     
     
-    public partial class _Default {
+    public partial class MainPage {
         
         /// <summary>
-        /// Contrôle tbnumf.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbnumf;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle RequiredFieldValidator1.
+        /// Contrôle lblnum.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lblnum;
         
         /// <summary>
-        /// Contrôle tbpassf.
+        /// Contrôle lblnom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbpassf;
+        protected global::System.Web.UI.WebControls.Label lblnom;
         
         /// <summary>
-        /// Contrôle RequiredFieldValidator2.
+        /// Contrôle lblnb_uv.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label lblnb_uv;
         
         /// <summary>
-        /// Contrôle btnsignin.
+        /// Contrôle gv1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsignin;
-        
-        /// <summary>
-        /// Contrôle lblerr.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerr;
+        protected global::System.Web.UI.WebControls.GridView gv1;
     }
 }
