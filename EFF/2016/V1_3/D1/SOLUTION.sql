@@ -2,6 +2,9 @@
 --	AUTHOR: ANAS RCHID
 -- CREATED: 06/03/16
 
+USE ff2016_v13;
+GO
+
 -- QUESTION 1: 
 --------------
 -- SEE DB/{CREATE, POP}.sql
@@ -63,7 +66,49 @@ BEGIN
 	SET cumulMontant += @Don
 	WHERE idOp = @idO
 END
+GO
 
 -- QUESTION 5:
 --------------
 
+CREATE PROC AJOUTER_DONATION
+(@montantDonation money, @idOp int, @idBien int) AS
+BEGIN
+	INSERT INTO Donation 
+	VALUES(GETDATE(), @montantDonation, @idOp, @idBien);
+END
+GO
+
+EXEC AJOUTER_DONATION 135, 1, 1
+GO
+
+-- QUESTION 6:
+--------------
+
+CREATE FUNCTION TOTAL_DONATIONS 
+(@idF int) RETURNS money AS
+BEGIN 
+	RETURN (SELECT 
+				SUM(o.montantOp) 
+			FROM 
+				Operation o, 
+				Famille f
+			WHERE
+				o.idFamille = f.idFamille);
+END
+GO
+
+PRINT dbo.TOTAL_DONATIONS (1)
+GO
+
+-- D3/QUESTION 6: SERVICE-WEB:
+------------------------------
+
+CREATE PROC NB_BIENFAISANTS
+AS 
+BEGIN
+	SELECT 
+		COUNT(*)
+	FROM 
+		Bienfaisant
+END
