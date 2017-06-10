@@ -35,10 +35,11 @@
             <asp:TextBox ID="tbpasswd1" runat="server"></asp:TextBox>
             Repeat Password:
             <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                ControlToCompare="tbpasswd0" ErrorMessage="CompareValidator"></asp:CompareValidator>
+                ControlToCompare="tbpasswd0"  ControlToValidate="tbpasswd1" ErrorMessage="CompareValidator"></asp:CompareValidator>
         </p>
         <p>
-            <asp:Button ID="tbsignup" Text="Signup" runat="server" Style="margin: 0px 0px 0px 40px;" />
+            <asp:Button ID="tbsignup" Text="Signup" runat="server" 
+                Style="margin: 0px 0px 0px 40px;" onclick="tbsignup_Click" />
             <br />
         </p>
     </div>
