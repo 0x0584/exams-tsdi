@@ -75,3 +75,43 @@ GO
 -- Question 6:
 --------------
  -- ??
+
+-- D3/Service :
+---------------
+
+CREATE PROC info 
+(@idf int) AS
+BEGIN
+	DECLARE @c_per int;
+	DECLARE @c_vac int;
+
+	SELECT 
+		@c_per = COUNT(f.numFormateur) 
+	FROM 
+		Formateur f, 
+		UV u 
+	WHERE 
+		(u.numEnsei = f.numFormateur OR u.numRespo = f.numFormateur) 
+		AND f.typeFormateur LIKE 'permanant' AND u.numFormation = @idf
+	---
+	SELECT 
+		@c_vac = COUNT(f.numFormateur) 
+	FROM 
+		Formateur f, 
+		UV u 
+	WHERE 
+		(u.numEnsei = f.numFormateur or u.numRespo = f.numFormateur) 
+		AND f.typeFormateur LIKE 'vacataire' AND u.numFormation = @idf
+
+	---
+	SELECT 
+		nombreUV, 
+		@c_per AS 'nb_per', 
+		@c_vac AS 'nb_vac' 
+	FROM 
+		Formation 
+	WHERE 
+		numFormation = @idf
+END
+GO
+EXEC info 2
