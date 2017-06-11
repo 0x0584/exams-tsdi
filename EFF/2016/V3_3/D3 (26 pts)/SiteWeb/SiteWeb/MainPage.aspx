@@ -15,6 +15,8 @@
         <br />
         <asp:GridView ID="gv1" runat="server">
         </asp:GridView>
+        <br />
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AddUV.aspx" Text="Ajouter UV">Ajouter UV</asp:HyperLink>
     </div>
     </form>
 </body>

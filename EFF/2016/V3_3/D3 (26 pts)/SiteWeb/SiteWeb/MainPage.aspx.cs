@@ -60,8 +60,8 @@ namespace SiteWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             commander.Connection = new SqlConnection("Server = WINXP\\SQLEXPRESS;" +
-                                                      "Initial Catalog = ff2016_v33;" +
-                                                      "Integrated Security = TRUE;");
+                                                     "Initial Catalog = ff2016_v33;" +
+                                                     "Integrated Security = TRUE;");
 
             if (Session["Formation"] == null) // la contrainte
                 Response.Redirect("~/Default.aspx");

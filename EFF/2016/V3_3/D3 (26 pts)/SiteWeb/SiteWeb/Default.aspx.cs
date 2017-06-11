@@ -18,7 +18,7 @@ namespace SiteWeb
             commander.Connection = new SqlConnection("Server = WINXP\\SQLEXPRESS; " +
                                                      "Initial Catalog = ff2016_v33; " +
                                                      "Integrated Security = TRUE;");
-
+            lblerr.Text = "";
         }
 
         protected void btnsignin_Click(object sender, EventArgs e)
