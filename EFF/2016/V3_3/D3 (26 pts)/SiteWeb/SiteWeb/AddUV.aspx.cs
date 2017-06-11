@@ -13,7 +13,9 @@ namespace SiteWeb
     {
         SqlCommand commander = new SqlCommand( );
         SqlDataReader reader = null;
+
         int numf;
+        bool isupdate;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +27,27 @@ namespace SiteWeb
             else numf = int.Parse(Session["Formation"].ToString( ));
 
             lblerr.Text = "";
+
+            isupdate = Request.QueryString["E"] != null &&
+                       Request.QueryString["R"] != null &&
+                       Request.QueryString["nu"] != null &&
+                       Request.QueryString["no"] != null &&
+                       Request.QueryString["M"] != null;
+
+
+
             if (IsPostBack) return; // skip the rest..
+
+            if (isupdate) {
+                tbnom.Text = Request.QueryString["no"];
+                tbnumuv.Text = Request.QueryString["nu"];
+                tbmass.Text = Request.QueryString["M"];
+                ddlist_ens.Text = Request.QueryString["E"];
+                ddlist_res.Text = Request.QueryString["R"];
+
+                tbnumuv.Enabled = false;
+                btnadd.Text = "UPDATE";
+            }
 
             #region Fill DropDownLists
             commander.Connection.Open( );
@@ -43,6 +65,8 @@ namespace SiteWeb
 
             commander.Connection.Close( );
             #endregion
+
+
         }
 
         protected void btnadd_Click(object sender, EventArgs e)
@@ -57,6 +81,8 @@ namespace SiteWeb
             #endregion
 
             commander.Connection.Open( );
+
+            if (isupdate) goto DUP_SKIPPED;
 
             #region Ensure the uniqness of the `numUV`
             commander.CommandText = "SELECT * FROM UV WHERE numUV = @numuv";
@@ -74,12 +100,20 @@ namespace SiteWeb
 
             #endregion
 
-            commander.CommandText = "INSERT INTO UV " +
-                                    "VALUES(@numuv, @nomuv, @massH, @E, @R, @numf)";
-
+        DUP_SKIPPED:
+            if (isupdate) {
+                commander.CommandText = "UPDATE UV SET nomUV = @nomuv, massHoraire = @massH, " +
+                                        "              numEnsei = @E, numRespo = @R " +
+                                        "WHERE numUV = @numuv";
+            } else {
+                commander.CommandText = "INSERT INTO UV " +
+                                        "VALUES(@numuv, @nomuv, @massH, @E, @R, @numf)";
+            }
 
             commander.ExecuteNonQuery( );
             commander.Connection.Close( );
+
+            if (isupdate) Response.Redirect("~/UpdateUV.aspx");
 
             Response.Redirect("~/MainPage.aspx");
 

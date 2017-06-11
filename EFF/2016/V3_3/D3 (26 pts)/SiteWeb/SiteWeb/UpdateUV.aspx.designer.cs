@@ -76,6 +76,15 @@ namespace SiteWeb {
         protected global::System.Web.UI.WebControls.Button btnfilter;
         
         /// <summary>
+        /// Contrôle radios.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl radios;
+        
+        /// <summary>
         /// Contrôle lblinfo.
         /// </summary>
         /// <remarks>
@@ -83,5 +92,23 @@ namespace SiteWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblinfo;
+        
+        /// <summary>
+        /// Contrôle lblerr.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblerr;
+        
+        /// <summary>
+        /// Contrôle gv1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gv1;
     }
 }

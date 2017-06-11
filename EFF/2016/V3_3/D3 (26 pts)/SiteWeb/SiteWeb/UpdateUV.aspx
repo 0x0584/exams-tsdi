@@ -12,16 +12,25 @@
         <asp:Button Style="margin:0px 0px 30px 10px;" ID="btncheck" runat="server" 
             Text="Select an UV" onclick="btncheck_Click" /><br />
         <asp:Button ID="btndel" runat="server" Text="Delete UV" OnClick="btndel_Click" />
-        <asp:Button ID="btnupdate" runat="server" Text="Update UV" />
-        <asp:Button ID="btnselected" runat="server" Text="Show Chapiters" />
+        <asp:Button ID="btnupdate" runat="server" Text="Update UV" 
+            onclick="btnupdate_Click" />
+        <asp:Button ID="btnselected" runat="server" Text="Show Chapiters" 
+            onclick="btnselected_Click" />
         <asp:Button ID="btnfilter" runat="server" Text="Filtering" />
     </div>
     <br />
-    <br />
     <div>
+        <div id="radios" runat="server">
+
+        </div>
+        <asp:Label ID="lblinfo" runat="server" ForeColor="#00CC66"></asp:Label>
         <br />
-        <asp:Label ID="lblinfo" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblerr" runat="server" ForeColor="Maroon"></asp:Label>
         <br />
+    </div>
+    <div>
+        <asp:GridView ID="gv1" runat="server">
+        </asp:GridView>
     </div>
     </form>
 </body>
