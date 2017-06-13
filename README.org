@@ -1,3 +1,4 @@
+
 * What?
   Solutions of the =TSDI EFF's= 
 
@@ -6,6 +7,11 @@
 
 * Who?
   [[mailto:rchid.anas@gmail.com][Anas Rchid]], TSDI 202. 2017.
-  Using =MS Visual Studio 2010=, =MS Sql Server Express 2008=
+
+  Using: 
+  + =MS Windows XP SP1 (running inside a VBOX)= 
+  + =MS Visual Studio 2010=
+  + =MS Sql Server Express 2008=
+
 
 
