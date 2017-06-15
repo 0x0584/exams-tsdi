@@ -16,9 +16,30 @@ namespace App
             InitializeComponent( );
         }
 
-        private void button4_Click(object sender, EventArgs e)
+       
+        private void button2_Click(object sender, EventArgs e)
         {
             GestionTarifParking g = new GestionTarifParking( );
+            g.ShowDialog( );
+            if (!(g.IsDisposed)) {
+                g.Dispose( );
+                g.Close( );
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ListUtils  g = new ListUtils( );
+            g.ShowDialog( );
+            if (!(g.IsDisposed)) {
+                g.Dispose( );
+                g.Close( );
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListParking g = new ListParking( );
             g.ShowDialog( );
             if (!(g.IsDisposed)) {
                 g.Dispose( );
