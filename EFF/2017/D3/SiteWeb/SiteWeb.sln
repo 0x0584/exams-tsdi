@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWeb", "SiteWeb\SiteWeb.csproj", "{6089B3F0-B5F6-41AB-A8CE-697D1B51D4AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6089B3F0-B5F6-41AB-A8CE-697D1B51D4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6089B3F0-B5F6-41AB-A8CE-697D1B51D4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6089B3F0-B5F6-41AB-A8CE-697D1B51D4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6089B3F0-B5F6-41AB-A8CE-697D1B51D4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
