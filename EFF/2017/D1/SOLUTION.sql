@@ -26,7 +26,16 @@ BEGIN
 	DELETE FROM Utilisateur WHERE idUtil = @idUtil;
 END
 GO
-
+EXEC SUPP_UTIL 1;
+SELECT 
+	* 
+FROM 
+	Utilisateur u, 
+	Stationnement s 
+WHERE 
+	s.idUtil = u.idUtil AND
+	u.idUtil = 1;
+GO
 -- QUESTION 4:
 --------------
 
@@ -34,19 +43,20 @@ CREATE PROC NB_PLACE_PAR_PARKING
 (@ville nvarchar(30)) AS
 BEGIN
 	SELECT
-		p.nbPlace
+		SUM(p.nbPlace)
 	FROM
 		Parking p
 	WHERE
 		p.ville = @ville;
 END
 GO
-
+EXEC NB_PLACE_PAR_PARKING 'Casablanca'
+GO
 -- QUESTION 5:
 --------------
 
 CREATE FUNCTION NB_STAT_EFFECT
-(@idType) RETURNS int AS
+(@idType int) RETURNS int AS
 BEGIN
 	RETURN 
 	(SELECT 
@@ -56,6 +66,8 @@ BEGIN
 	 WHERE
 		s.idType = @idType);
 END
+
+PRINT dbo.NB_STAT_EFFECT(1)
 GO
 
 -- QUESTION 6:
@@ -78,4 +90,12 @@ BEGIN
 		UPDATE Parking SET nbPlaceLibre -= 1 WHERE idPark = @idPark;
 	END
 END
+GO
+
+SELECT * FROM Parking
+SELECT * FROM Stationnement
+INSERT INTO Stationnement
+VALUES(1, GETDATE(), 2, 1, 1, 5);
+GO
+SELECT * FROM Parking
 GO
